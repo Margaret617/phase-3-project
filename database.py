@@ -11,6 +11,8 @@ def get_connection():
 
 def execute_query(query, params=()):
     ''' execute a query on the database and return the results'''
+    print("Executing query:", query)
+    print("With params:", params)
     with get_connection() as conn:
         Cursor = conn.cursor()
         Cursor.execute(query, params)
@@ -19,6 +21,8 @@ def execute_query(query, params=()):
         
 def fetch_query(query, params=()):
     ''' execute a query on the database and return the results'''
+    print("Fetching query:", query)
+    print("With params:", params)
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute(query, params)
