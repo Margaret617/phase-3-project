@@ -29,3 +29,15 @@ def fetch_query(query, params=()):
         return cursor.fetchall()
     
 
+def init_db():
+    '''Initialize the database and create tables if they don't exist.'''
+    create_table_query = '''
+    CREATE TABLE IF NOT EXISTS books (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        author TEXT NOT NULL,
+        published_date TEXT
+    );
+    '''
+    execute_query(create_table_query)
+
